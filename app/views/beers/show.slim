@@ -1,4 +1,6 @@
 .beer-info
-  h1= @beer.name
-  h2= @beer.brewer
+  h1
+    = @beer.name
+    |  
+    small= @beer.brewer
   h3= "#{@beer.style}  - #{@beer.abv}%"
