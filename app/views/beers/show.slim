@@ -1,3 +1,4 @@
-h1= @beer.brewer.capitalize
-h2= @beer.name.capitalize
-h3= "#{@beer.style.capitalize}  - %#{@beer.abv.to_f}"
+.beer-info
+  h1= @beer.brewer
+  h2= @beer.name
+  h3= "#{@beer.style}  - %#{@beer.abv}"
