@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root to: 'beers#index'
+
   resources :beers
+  root to: 'beers#index'
+
+  devise_for :users, path: "auth"  
+  resources :users, only: [:show, :edit, :update]
   
 end

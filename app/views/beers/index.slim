@@ -1,11 +1,15 @@
-h1 Beers
+h2 Beers
 .beers
-  table.table
+  table.table.table-striped
+    tr
+      th Beer
+      th Actions
     - @beers.each do |beer|
       tr
-        td= link_to beer.name, beer
+        td.beer-name-cell
+          = link_to beer.name, beer  
         td 
           = link_to "Edit", edit_beer_path(beer), class: "btn btn-default"
           = link_to "Delete", beer_path(beer), method: :delete, class: "btn btn-default"
 
-= link_to "Add new Beer", new_beer_path, class: "btn btn-default"
+= link_to "Add new Beer", new_beer_path, class: "btn btn-primary"
