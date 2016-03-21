@@ -1,6 +1,6 @@
 class Beer < ActiveRecord::Base
   has_and_belongs_to_many :users, join_table: :users_beers
-  
+
   validates :name, presence: true
   validates :brewer, presence: true
   validates :style, presence: true
@@ -20,5 +20,5 @@ class Beer < ActiveRecord::Base
 
   def abv=(p)
     super(p.to_f)
-  end
+  end  
 end

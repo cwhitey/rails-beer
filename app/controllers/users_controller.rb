@@ -12,4 +12,10 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
   end
+
+  def add_beer
+    @user = User.find(params[:id])
+    @beer = Beer.find(params[:beer][:id])
+  end
+  
 end
