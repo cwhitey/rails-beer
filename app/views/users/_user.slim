@@ -1,0 +1,9 @@
+td
+  = link_to user.email, user
+td
+  = simple_form_for user, wrapper: :inline_form, html: {class: 'form-inline'} do |f|
+    = f.input :role, collection: User.roles.keys.map{|role| [role.titleize, role]}, include_blank: false
+    = f.button :submit, class: 'btn btn-default'
+td
+  - unless user == current_user
+    = link_to "Delete User", user_path(user), data: {confirm: "Are you sure?"}, method: :delete, class: 'btn btn-danger'

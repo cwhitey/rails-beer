@@ -3,12 +3,10 @@ html
   head
     title
       | Beer Drinkers
-    link[rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"]
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-    
     nav.navbar.navbar-default.navbar-static-top
       .container-fluid
         .navbar-header
@@ -16,8 +14,12 @@ html
         .navbar-collapse.collapse
           ul.nav.navbar-nav
             li= link_to "Beer list", beers_path
+            - if current_user
+              li= link_to "Your beer list", user_beers_path(current_user)
           ul.nav.navbar-nav.navbar-right
-            - if user_signed_in?
+            - if current_user
+              - if current_user.admin?
+                li= link_to "User Admin", users_path
               li= link_to "Sign out", destroy_user_session_path, method: :delete
             - else
               li= link_to "Sign in", new_user_session_path

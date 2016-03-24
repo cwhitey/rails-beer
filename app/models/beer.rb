@@ -15,10 +15,10 @@ class Beer < ActiveRecord::Base
   end
 
   def style=(s)
-    super(s.capitalize)
+    super(s.titleize)
   end
 
   def abv=(p)
     super(p.to_f)
-  end  
+  end
 end
