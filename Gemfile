@@ -29,6 +29,9 @@ gem 'slim-rails'
 gem 'simple_form'
 gem 'devise'
 
+# Easy image upload and attachment
+gem "paperclip"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
